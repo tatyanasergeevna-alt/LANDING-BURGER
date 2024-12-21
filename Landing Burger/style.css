@@ -1,0 +1,406 @@
+/*! Общие стили */
+
+body {
+  margin: 0;
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+a {
+  color: #fff;
+  text-decoration: none; /*! Убираем подчеркивание ссылок */
+}
+
+p {
+  margin: 0;
+}
+
+p + p {
+  /*!Такая конструкция исаользуется, когда за одним абзацем сразу следует другой и мы между ними поставили отступ */
+  margin-top: 15px;
+}
+ul {
+  list-style: none; /*! Убираем маркеры со списка */
+  margin: 0; /*! Убираем отсупы по умолчанию у списка в браузере */
+  padding: 0; /*! Убираем отсупы по умолчанию у списка в браузере */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  margin: 0;
+}
+
+.container {
+  box-sizing: border-box; /*! В ширину контейнера включены все падинги, которые мы используем */
+  max-width: 1170px; /*! Максимальная ширина контента на странице, которую он может занимать */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500; /*! Жирность шрифта */
+  font-size: 16px;
+  color: #fff;
+  width: 165px;
+  height: 50px;
+  background: #f6762c; /*! Фоновый цвет */
+  border-radius: 5px; /*! Скругление углов */
+  text-transform: uppercase; /*! Все буквы идут заглавными вне зависимоти от того, как они написаны в HTML */
+  transition: opacity 0.3s; /*! Свойство для плавности при наведении на кнопку/ссылку*/
+}
+
+.btn:hover {
+  opacity: 0.8; /*! Прозрачность элементов */
+}
+
+.btn--small {
+  width: 140px;
+  height: 40px;
+  font-size: 12px;
+}
+
+/*! Шапка */
+
+.header {
+  padding: 25px 0;
+  position: relative; /*! чтобы ссылки работали необходимо в шапке установить позициониорование и затем вывести на 10 слоев вперед, для этого используется z-index */
+  z-index: 10;
+}
+
+.header .container {
+  display: flex; /*! когда задаем flex-boxмодель, то подключаются 2 оси: главная ось - слева на право, поперечная - сверху вниз.  */
+  justify-content: space-between; /*! свойство, которое помогает выравнивать элементы по главной оси с равными расстояниями между элементами*/
+  align-items: center; /*! Выравнивание по поперечной оси */
+}
+
+.header__logo {
+}
+
+.header__nav {
+}
+
+.header__list {
+  display: flex;
+  gap: 30px; /*! Расстояние между элементами */
+}
+
+.header__nav a {
+  font-size: 14px; /*! Размер шрифта */
+  opacity: 0.7; /*! Прозрачность элементов */
+  transition: opacity 0.3s; /*! Свойство для плавности при наведении на кнопку/ссылку*/
+}
+
+.header__nav a.active {
+  opacity: 1; /*! Прозрачность элементов */
+}
+
+.header__nav a:hover {
+  opacity: 0.9; /*! Прозрачность элементов */
+}
+
+.main {
+}
+/* welcome - приветсвенная секция*/
+.welcome {
+  box-sizing: border-box; /*! указываем чтобы в высоту указанную ниже входили все падинги */
+  min-height: 100vh; /*! Хотим чтобы секция занимала весь экран при открытии сайта} */
+  margin-top: -100px;
+  padding: 240px 0;
+  background-image: url("./images/welcome-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; /*! cover - это значение, когда мы растягиваем картинку на всю ширину */
+  background-position: center; /*! чтобы картинка была по центру и не уезжала*/
+}
+
+.welcome__text {
+  width: 550px;
+}
+
+.welcome__subtitle {
+  margin-bottom: 7px;
+  font-size: 14px;
+  letter-spacing: 0.1em; /*! Межбуквенный интервал */
+}
+
+.welcome__title {
+  font-size: 58px;
+}
+
+.welcome__desc {
+  margin: 40px 0;
+  font-size: 18px;
+  opacity: 0.7;
+}
+/* Список еды*/
+
+.food-list {
+  padding: 100px 0;
+}
+
+.food-list .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /*! Свойсво для адаптации сайта, чтобы при уменьшении экрана, например, карточки переносились */
+  gap: 40px 10px;
+}
+
+.container {
+}
+
+.food-list__card {
+  width: 260px;
+  background: #312f30;
+  border-radius: 10px;
+  overflow: hidden; /*! св-во чтобы удалить все, что выходит за пределы карточки */
+  text-align: center;
+}
+
+.food-list__img {
+  min-width: 100%; /*! Устанавливаем ширину картинки по ее карточке, контейнеру, чтобы не выходила за границы */
+  height: 175px;
+  object-fit: cover; /*! чтобы картинка не растягивалась, а была пропорциональной, подстраивается под заданную высоту */
+}
+
+.food-list__text-wrapper {
+  padding: 30px 20px;
+}
+
+.food-list__title {
+  margin-bottom: 15x;
+  font-size: 20px;
+}
+
+.food-list__desc {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+/* order*/
+
+.order {
+  background: #312f30;
+  padding: 60px 0;
+}
+
+.order .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 90px;
+}
+
+.order__img {
+  max-width: 470px;
+}
+
+.order__text {
+  max-width: 360px;
+}
+
+.order__title {
+  margin-bottom: 25px;
+  font-size: 44px;
+}
+
+.order__desc {
+  margin-bottom: 15px;
+  opacity: 0.7;
+}
+
+.order__price {
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  color: #f6762c;
+}
+
+.order__price--old {
+  /*! использование модификатора, когда 2 объекта немного различаются и чтобы задать другие св-ва модификатору*/
+  font-size: 16px;
+  text-decoration: line-through; /*! св-во чтобы сделать текст зачеркнутым */
+  opacity: 0.5;
+}
+
+.order__price + .order__price/*! Выбираем вторую цену чтобы сделать отсуп от нее влево */ {
+  margin-left: 3px;
+}
+
+.order .btn {
+  margin-top: 10px;
+}
+
+.product {
+  padding: 150px 0;
+}
+.product .container {
+  display: flex;
+  flex-wrap: wrap; /*! Перенос элементов, дает им переносится, если они не умещаются на одной строке*/
+  gap: 30px;
+  justify-content: center; /*! чтобы при уменьшении экрана элементы центрировались по главной оси*/
+}
+.product__card {
+  width: 555px;
+  min-height: 300px;
+  padding: 60px 30px 60px 290px;
+  box-sizing: border-box;
+  background-color: #4b3a3a; /*! на случай если фоновая картинка в карточках не прогрузится будет просто фон, такие моменты можно продумывать при верстке*/
+  background-size: cover; /*! чтобы картинки занимали все место под карточку*/
+  background-repeat: no-repeat; /*! чтобы картинки не повторялись*/
+  background-position: center; /*! чтобы картинки позиционировались по центру карты*/
+}
+
+.product__card:nth-child(even) /*! при помощи even выбираем каждую четную карточку, которая лежит в одной обертке */ {
+  padding-left: 30px;
+  padding-right: 290px;
+}
+
+.product__title {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.product__desc {
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+.product__price {
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: #f6762c;
+}
+
+.product__price + .product__price {
+  margin-left: 5px;
+}
+
+.product__price--old {
+  text-decoration-line: line-through;
+  opacity: 0.5;
+}
+
+.product .btn {
+  margin-top: 10px;
+}
+
+.card-queen {
+  background-image: url(./images/product-1.jpg);
+}
+
+.card-hut {
+  background-image: url(./images/product-2.jpg);
+}
+
+.card-king {
+  background-image: url(./images/product-3.jpg);
+}
+
+.card-papa {
+  background-image: url(./images/product-4.jpg);
+}
+
+/* feedback */
+
+.feedback {
+  padding-bottom: 200px;
+}
+.feedback .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 880px;
+}
+.feedbsck__image {
+}
+.feedback__text {
+  margin: 0;
+  width: 370px;
+  text-align: center;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.feedback__text::before /*! Псевдоэлемент*/ {
+  content: url(./images/icons/quote.svg);
+}
+
+.feedback__desc {
+  opacity: 0.7;
+  margin: 30px 0;
+}
+.feedback__author {
+  font-weight: 500;
+  font-style: normal;
+  font-size: 24px;
+}
+.feedback__subauthor {
+  font-weight: 500;
+  font-size: 12px;
+  opacity: 0.7;
+  display: block;
+}
+/* download */
+.download {
+  background: #312f30;
+  padding: 60px 0;
+}
+.download .container {
+  display: flex;
+  justify-content: space-around; /* space-around — свободное пространство делится поровну между элементами и по половине от этой доли размещается по бокам от каждого элемента. */
+}
+.download__title {
+  font-weight: 500;
+  font-size: 40px;
+}
+.btn {
+}
+/* footer */
+.footer {
+}
+.footer a {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.footer .footer__title {
+  font-weight: 500;
+  font-size: 16px;
+  opacity: 1;
+}
+
+.container {
+}
+.footer__contacts {
+}
+.footer__logo {
+}
+.footer__link {
+}
+.footer__link-mail {
+}
+.footer__link-web {
+}
+.footer__nav {
+}
+.footer__list {
+}
+.footer__list-title {
+}
+
+.footer__inner-list {
+}
+.footer__list-item {
+}
+.footer__socials {
+}
+.footer__socials-icons {
+}
+.footer__socials-link {
+}
