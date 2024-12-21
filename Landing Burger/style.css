@@ -1,9 +1,11 @@
 /*! Общие стили */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 
 body {
   margin: 0;
   background-color: #1c1c1c;
   color: #fff;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -317,11 +319,11 @@ h6 {
   justify-content: space-between;
   max-width: 880px;
 }
-.feedbsck__image {
+.feedback__image {
 }
 .feedback__text {
   margin: 0;
-  width: 370px;
+  max-width: 370px;
   text-align: center;
   /* display: flex;
   flex-direction: column; */
@@ -354,6 +356,7 @@ h6 {
 .download .container {
   display: flex;
   justify-content: space-around; /* space-around — свободное пространство делится поровну между элементами и по половине от этой доли размещается по бокам от каждого элемента. */
+  align-items: center;
 }
 .download__title {
   font-weight: 500;
@@ -363,44 +366,165 @@ h6 {
 }
 /* footer */
 .footer {
+  padding: 120px 0;
 }
 .footer a {
   font-size: 12px;
-  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.8);
 }
-
+.footer a:hover {
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.3s;
+}
 .footer .footer__title {
+  display: inline-block; /* inline-block — элемент ведёт себя снаружи как строчный, а внутри как блочный. */
   font-weight: 500;
   font-size: 16px;
-  opacity: 1;
+  color: rgb(255, 255, 255);
+  margin-bottom: 15px;
 }
 
-.container {
+.footer .container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr; /* разделение, сколько каждый элемент займет места */
 }
 .footer__contacts {
+  display: flex;
+  flex-direction: column; /* когда задаем такое свойство главная и поперечная ось меняются местами, поперечная ось идет слева направо, а главная сверзу вниз*/
+  align-items: flex-start;
 }
 .footer__logo {
+  width: 70px;
+  margin-bottom: 20px;
 }
+
 .footer__link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
-.footer__link-mail {
+.footer__link + .footer__link {
+  margin-top: 10px;
 }
-.footer__link-web {
+
+.footer__link::before {
+  width: 12px;
+  height: 12px;
+}
+.footer__link-mail::before {
+  content: url(./images/icons/mail.svg);
+}
+.footer__link-web::before {
+  content: url(./images/icons/global.svg);
 }
 .footer__nav {
 }
 .footer__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 раза повторить  1fr*/
 }
 .footer__list-title {
 }
 
 .footer__inner-list {
 }
-.footer__list-item {
+.footer__list-item + .footer__list-item {
+  margin-top: 15px;
 }
 .footer__socials {
 }
 .footer__socials-icons {
 }
-.footer__socials-link {
+.footer__socials-link + .footer__socials-link {
+  margin-left: 8px;
+}
+
+@media (max-width: 1100px) {
+  .welcome__desc {
+    opacity: 1;
+  }
+}
+@media (max-width: 950px) {
+  .order .container {
+    flex-direction: column;
+    padding-right: 0;
+  }
+  .order__text {
+    text-align: center;
+  }
+  .order .btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 850px) {
+  .food-list .container {
+    justify-content: space-evenly; /* space-evenly — свободное место будет распределено так, чтобы расстояние между любыми двумя элементами было одинаковым и расстояние от крайних элементов до края было таким же.*/
+  }
+
+  .footer .container {
+    grid-template-columns: 1fr 1fr; /* создаем 2 колонки*/
+    grid-template-rows: 1fr 1fr; /* создаем 2 ряда*/
+    grid-template-areas:
+      "nav nav"
+      "contacts socials"; /* задаем имена для каждой из ячеек в верхем ряду*/
+    justify-items: center;
+    gap: 40px 100px; /* в гридах можно устанавливать расстояние 1 - между рядами, 2 - между элементами*/
+  }
+
+  .footer__contacts {
+    grid-area: contacts; /* прописываем какую область будет занимать элемент и под каким названием без ковычек*/
+    justify-self: end; /* чтобы элемент расположился в конце горизонтального выравнивания справа*/
+  }
+
+  .footer__nav {
+    grid-area: nav;
+  }
+
+  .footer__socials {
+    grid-area: socials;
+    align-self: center; /*   чтобы элемент не растрягивался в сетке, а занимал центральное положение в своем секторе*/
+    justify-self: start; /* чтобы элемент расположился в начале горизонтального выравнивания справа*/
+  }
+
+  .footer__list {
+    gap: 80px;
+  }
+
+  .feedback {
+    padding-bottom: 100px;
+  }
+
+  .footer {
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .header .btn {
+    display: none;
+  }
+  .feedbsck__image {
+    width: 200px;
+  }
+  .download__title {
+    font-size: 30px;
+  }
+  .welcome {
+    padding: 150px 0 100px;
+    min-height: auto;
+  }
+  .welcome__text {
+    width: 100%;
+  }
+  .welcome__title {
+    font-size: 40px;
+  }
+  .welcome__desc {
+    margin: 20px 0;
+  }
+  .product {
+    padding: 60px 0 100px;
+  }
 }
