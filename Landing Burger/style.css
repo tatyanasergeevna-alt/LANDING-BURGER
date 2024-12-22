@@ -447,7 +447,7 @@ h6 {
 @media (max-width: 950px) {
   .order .container {
     flex-direction: column;
-    padding-right: 0;
+    padding-right: 15px;
   }
   .order__text {
     text-align: center;
@@ -497,7 +497,7 @@ h6 {
   }
 
   .footer {
-    padding: 50px 0;
+    padding: 60px 0;
   }
 }
 
@@ -514,6 +514,7 @@ h6 {
   .welcome {
     padding: 150px 0 100px;
     min-height: auto;
+    padding-bottom: 80px;
   }
   .welcome__text {
     width: 100%;
@@ -526,5 +527,148 @@ h6 {
   }
   .product {
     padding: 60px 0 100px;
+  }
+
+  .product__card {
+    width: 100%; /*  ширина по ширине устройства */
+    padding-left: 50%;
+  }
+  .product__card:nth-child(even) {
+    padding-right: 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .header .container {
+    flex-direction: column; /* column — основная ось идёт вертикально сверху вниз, поперечная ось идёт горизонтально слева направо.*/
+    gap: 10px;
+  }
+
+  .header__list {
+    flex-direction: column;
+    text-align: center; /* text-align управляет выравниванием контента (к примеру текста) по горизонтали внутри родительского элемента.
+  
+      */
+    gap: 10px;
+  }
+
+  .welcome {
+    margin-top: -240px;
+    padding-top: 280px;
+  }
+  .welcome__subtitle {
+  }
+  .welcome__title {
+    font-size: 30px;
+  }
+  .welcome__desc {
+    font-size: 12px;
+  }
+  .food-list {
+    padding: 60px 0;
+  }
+  .order__title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .order__img {
+    width: 100%;
+  }
+  .feedback .container {
+    flex-direction: column;
+  }
+  .feedback,
+  .product {
+    padding-bottom: 60px;
+  }
+  .download .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer__contacts {
+    align-items: center;
+  }
+  .footer__socials-icons {
+    display: flex;
+    justify-content: center;
+  }
+  .footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footer .footer__title {
+    margin-bottom: 10px;
+  }
+
+  .footer__list-item + .footer__list-item {
+    margin-top: 7px;
+  }
+  .footer__logo {
+    margin-bottom: 10px;
+  }
+
+  .feedback__author {
+    font-size: 18px;
+  }
+  .feedback__desc {
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  .product__card {
+    padding-left: 30px;
+  }
+  .product__card:nth-child(even) {
+    padding-right: 30px;
+  }
+  .product__desc {
+    opacity: 1;
+  }
+  .product__card {
+    position: relative;
+    text-align: center;
+  }
+  .product .btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .product__card > * /*    селектор чтобы выбрать все элементы в обертке */ {
+    position: relative;
+    z-index: 10;
+  }
+
+  .product__card::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0; /*    чтобы элемент начинался в верзнего левого угла */
+    top: 0; /*    чтобы элемент начинался в верзнего левого угла */
+  }
+
+  .welcome {
+    position: relative;
+  }
+
+  .welcome .container {
+    position: relative;
+    z-index: 10;
+  }
+
+  .welcome::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0; /*    чтобы элемент начинался в верзнего левого угла */
+    top: 0; /*    чтобы элемент начинался в верзнего левого угла */
   }
 }
